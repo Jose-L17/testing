@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TestService } from '../service/datatest1.service';
+import { TestService } from '../services/datatest1.service';
 @Component({
   selector: 'app-linear-regression',
   templateUrl: './linear-regression.component.html',
