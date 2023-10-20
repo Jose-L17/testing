@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { LinearRegressionComponent } from './linear-regression.component';
-import { TestService } from '../service/datatest1.service';
-import { Calculate } from '../calculate';
+import { TestService } from '../services/datatest1.service';
 
 describe('LinearRegressionComponent', () => {
   let component: LinearRegressionComponent;
