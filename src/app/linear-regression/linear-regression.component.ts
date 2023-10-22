@@ -5,10 +5,32 @@ import { TestService } from '../services/datatest1.service';
   templateUrl: './linear-regression.component.html',
   styleUrls: ['./linear-regression.component.css'],
 })
-export class LinearRegressionComponent {
+export class LinearRegressionComponent implements OnInit {
   constructor(public testService: TestService) {}
 
+  public datos_Api_Test1: any;
+  public datos_Api_Test2: any;
+  public datos_Api_Test3: any;
+  public datos_Api_Test4: any;
+
   ngOnInit(): void {
+    console.log("Ingresa al ngOnit")
+    this.testService.obtenerDatos1().subscribe((data: any) => {
+      console.log("Ingresa al componente.Test1")
+      this.datos_Api_Test1 = data;
+    })
+    this.testService.obtenerDatos2().subscribe((data: any) => {
+      console.log("Ingresa al componente.Test2")
+      this.datos_Api_Test2 = data;
+    })
+    this.testService.obtenerDatos3().subscribe((data: any) => {
+      console.log("Ingresa al componente.Test3")
+      this.datos_Api_Test3 = data;
+    })
+    this.testService.obtenerDatos4().subscribe((data: any) => {
+      console.log("Ingresa al componente.Test4")
+      this.datos_Api_Test4 = data;
+    })
   }
 
   sum(data: number[]): number {
@@ -42,4 +64,5 @@ export class LinearRegressionComponent {
   yk(x: number[], y: number[], xk: number): number {
     return this.B0(x, y) + this.B1(x, y) * xk;
   }
+
 }
