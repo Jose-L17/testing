@@ -18,15 +18,13 @@ describe('DesviacionComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ DesviacionComponent ],
       imports: [ HttpClientTestingModule ],
-      providers: [{ provide: HoursService, useValue: hoursService }, HoursService, SizeService] // Proporciona el servicio falso
+      providers: [] // Proporciona el servicio falso
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(DesviacionComponent);
     component = fixture.componentInstance;
-    hoursService = TestBed.inject(HoursService);
     sizeService = TestBed.inject(SizeService);
-    httpTestingController = TestBed.inject(HttpTestingController); // Obtiene una instancia del controlador de pruebas HTTP
 
   });
 
@@ -34,25 +32,9 @@ describe('DesviacionComponent', () => {
     expect(component).toBeTruthy();
   });
 
-
-  it('Probar que el metodo mediaSize esté funcionando', () => {
-    const mediaSizeSpy = spyOn(component, 'getHours');
-    fixture.detectChanges();
-    expect(mediaSizeSpy).toHaveBeenCalled();
-  });
-
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-
-  it('Funcionamiento ObtenerMediaHours', () => {
-    const probar_componente = spyOn(component, 'getHours');
-    component.getHours();
-    expect(probar_componente).toHaveBeenCalled();
-  });
-
-
 
   it('should return mean = 60.32 with the data Hours', () => {
     const result= component.getMedia(

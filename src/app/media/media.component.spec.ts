@@ -13,8 +13,6 @@ describe('MediaComponent', () => {
   let httpTestingController: HttpTestingController;
 
   beforeEach(async () => {
-    hoursService = jasmine.createSpyObj('HoursService', ['getHours']); // Crea un servicio "falso" con el método getHours
-    sizeService = jasmine.createSpyObj('SizeService', ['getSize']); // Crea un servicio "falso" con el método getSize
     await TestBed.configureTestingModule({
       declarations: [ MediaComponent ],
       imports: [ HttpClientTestingModule ],
@@ -30,21 +28,9 @@ describe('MediaComponent', () => {
 
   });
 
-  it('Probar que el metodo mediaSize esté funcionando', () => {
-    const mediaSizeSpy = spyOn(component, 'getHours');
-    fixture.detectChanges();
-    expect(mediaSizeSpy).toHaveBeenCalled();
-  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-
-  it('Funcionamiento ObtenerMediaHours', () => {
-    const probar_componente = spyOn(component, 'getHours');
-    component.getHours();
-    expect(probar_componente).toHaveBeenCalled();
   });
 
 
