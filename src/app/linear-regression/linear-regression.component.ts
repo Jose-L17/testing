@@ -45,8 +45,16 @@ export class LinearRegressionComponent implements OnInit {
     return this.sum(x);
   }
 
+  SumY(y: number[]): number {
+    return this.sum(y);
+  }
+
   sumYY(y: number[]): number {
     return this.sum(y.map((value) => value * value));
+  }
+
+  sumXX(x: number[]): number {
+    return this.sum(x.map((value) => value * value));
   }
 
   B1(x: number[], y: number[]): number {
@@ -65,4 +73,37 @@ export class LinearRegressionComponent implements OnInit {
     return this.B0(x, y) + this.B1(x, y) * xk;
   }
 
+}
+
+export function sum(data: number[]): number {
+  return data.reduce((acc, value) => acc + value, 0);
+}
+
+export function sumXY(x: number[], y: number[]): number {
+  return sum(x.map((value, index) => value * y[index]));
+}
+
+export function sumX(x: number[]): number {
+  return sum(x);
+}
+
+export function sumYY(y: number[]): number {
+  return sum(y.map((value) => value * value));
+}
+
+export function sumXX(x: number[]): number {
+  return sum(x.map((value) => value * value));
+}
+
+export function B1(x: number[], y: number[]): number {
+  const N = x.length;
+  return (N * sumXY(x, y) - sumX(x) * sum(y)) / (N * sumYY(x) - Math.pow(sumX(x), 2));
+}
+
+export function B0(x: number[], y: number[]): number {
+  return (sum(y) - B1(x, y) * sumX(x)) / x.length;
+}
+
+export function yk(x: number[], y: number[], xk: number): number {
+  return B0(x, y) + B1(x, y) * xk;
 }
