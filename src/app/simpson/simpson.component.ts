@@ -1,6 +1,7 @@
 import { fx_1eX } from "./f(x)=1ex";
 import { fx_2x } from "./f(x)=2x";
 import { fx_XxX } from "./f(x)=XxX";
+import { simpsonMethodForT } from "../distribucionT/t"
 
 export function simpson(f: string, x0: number, x1: number, num_seg: number, dof: number) {
 
@@ -15,7 +16,8 @@ export function simpson(f: string, x0: number, x1: number, num_seg: number, dof:
     const arrP = []; // Arreglo para almacenar las sumas parciales
     let margenE = 1; // Margen de error
 
-    do {
+    if (dof == 0) {
+      do {
         margenE = 0; // Reinicia el margen de error en cada iteración
         let W = (x1 - x0) / num_seg; // Ancho de cada segmento
         let W3 = W / 3; // Tercio del ancho del segmento
@@ -61,4 +63,8 @@ export function simpson(f: string, x0: number, x1: number, num_seg: number, dof:
     }
 
     return PF; // Devuelve el resultado final de la aproximación de la integral
+
+    } else {
+        return simpsonMethodForT(dof, num_seg, x1);
+    }
 }
