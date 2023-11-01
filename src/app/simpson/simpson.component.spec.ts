@@ -17,4 +17,17 @@ describe('media test suite', () => {
         expect(resultado).toBe(1);
     })
 
+    it('Should return p = 0.35006 if X = 1.1, num_seg = 10 and Dof = 9',()=>{
+      const result = simpson('', 0, 1.1 , 10, 9);
+      expect(result).toBe(0.35006);
+  })
+     it('Should return p = 0.36757 if X = 1.1812, num_seg = 10 and Dof = 10',()=>{
+     const result = simpson('', 0, 1.1812 , 10, 10);
+     expect(result).toBe(0.36757);
+ })
+  it('Should return p = 0.49500 if X = 2.750, num_seg = 10 and Dof = 30',()=>{
+      const result = simpson('', 0, 2.750 , 10, 30);
+     expect(result).toBe(0.49500);
+ })
+
 })
