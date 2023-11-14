@@ -5,22 +5,20 @@ import { SizeService } from '../services/data2.service';
 @Component({
   selector: 'app-desviacion',
   templateUrl: './desviacion.component.html',
-  styleUrls: ['./desviacion.component.css']
+  styleUrls: ['./desviacion.component.css'],
 })
 export class DesviacionComponent implements OnInit {
-
   constructor(
     public hoursService: HoursService,
     public sizeService: SizeService
-  ) {
-  }
+  ) {}
 
   public horas: any[] | any;
   public size: any[] | any;
   public media_hours: any[] | any;
   public media_size: any[] | any;
   public desviacion_hours: any; // Para almacenar la desviación estándar de horas
-  public desviacion_size: any;  // Para almacenar la desviación estándar de size
+  public desviacion_size: any; // Para almacenar la desviación estándar de size
 
   async ngOnInit(): Promise<void> {
     await this.getHours();
@@ -33,39 +31,31 @@ export class DesviacionComponent implements OnInit {
 
   async getHours() {
     return new Promise<void>((resolve, reject) => {
-      this.hoursService.getHours().subscribe(
-        (data: any[]) => {
-          this.horas = data;
-          resolve();
-        }
-      );
+      this.hoursService.getHours().subscribe((data: any[]) => {
+        this.horas = data;
+        resolve();
+      });
     });
   }
 
   async getSize() {
     return new Promise<void>((resolve, reject) => {
-      this.sizeService.getSize().subscribe(
-        (data: any[]) => {
-          this.size = data;
-          resolve();
-        }
-      );
+      this.sizeService.getSize().subscribe((data: any[]) => {
+        this.size = data;
+        resolve();
+      });
     });
   }
 
   async obtenerMediaHours() {
     if (this.horas && this.horas.data && Array.isArray(this.horas.data)) {
       this.media_hours = this.getMedia(...this.horas.data);
-    } else {
-      console.log('No hay datos disponibles para calcular la media de horas.');
     }
   }
 
   async obtenerMediaSize() {
     if (this.size && this.size.data && Array.isArray(this.size.data)) {
       this.media_size = this.getMedia(...this.size.data);
-    } else {
-      console.log('No hay datos disponibles para calcular la media de size.');
     }
   }
 
@@ -73,9 +63,6 @@ export class DesviacionComponent implements OnInit {
     if (this.horas && this.horas.data && Array.isArray(this.horas.data)) {
       const media = this.getMedia(...this.horas.data);
       this.desviacion_hours = this.getDesviacion(this.horas.data, media);
-      console.log(this.desviacion_hours);
-    } else {
-      console.log('No hay datos disponibles para calcular la desviación estándar de horas.');
     }
   }
 
@@ -83,12 +70,9 @@ export class DesviacionComponent implements OnInit {
     if (this.size && this.size.data && Array.isArray(this.size.data)) {
       const media = this.getMedia(...this.size.data);
       this.desviacion_size = this.getDesviacion(this.size.data, media);
-      console.log(this.desviacion_size);
-    } else {
-      console.log('No hay datos disponibles para calcular la desviación estándar de size.');
     }
   }
-
+  
   getMedia(...numbers: number[]): number {
     if (numbers.length === 0) return 0;
     const sum = numbers.reduce((a, b) => a + b, 0);
@@ -105,6 +89,6 @@ export class DesviacionComponent implements OnInit {
 
     const varianza = acumulador / (arreglo.length - 1);
     const desviacion = Math.sqrt(varianza);
-    return +(desviacion.toFixed(2));
+    return +desviacion.toFixed(2);
   }
 }

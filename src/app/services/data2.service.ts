@@ -11,7 +11,7 @@ export class SizeService {
 
   constructor(private http: HttpClient ) { }
 
-  apiUrl = 'http://localhost:8080/size';
+  apiUrl = 'https://apicv-service-jose-l17.cloud.okteto.net/size';
 
   httpOptions = {
     headers: new HttpHeaders ({
@@ -23,15 +23,4 @@ export class SizeService {
     return this.http.get<any>(this.apiUrl, this.httpOptions);
   }
 
-  handleError(error: any) {
-    let errorMessage = '';
-
-    if(error.error instanceof ErrorEvent) {
-      errorMessage = error.error.message;
-    } else {
-      errorMessage = `Error code: ${error.status} \n Message: ${error.message}`
-    }
-    window.alert(errorMessage);
-    return throwError(errorMessage);
-  }
 }

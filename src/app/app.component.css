@@ -1,0 +1,151 @@
+.Contenedor_Principal {
+  width: 99.2vw;
+  height: 97.2vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  background-color: rgba(219, 212, 212, 0.245);
+
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+  margin: 0;
+  padding: 0;
+}
+
+.Contenedor_Secundario {
+  width: 100%;
+  height: 90%;
+
+  margin: 3%;
+  margin-left: 1%;
+
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  grid-template-areas: "Menu_Opciones Pantalla_Informacion";
+}
+
+.Menu_Opciones {
+  grid-area: Menu_Opciones;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.Pantalla_Informacion {
+  grid-area: Pantalla_Informacion;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.Menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.Titulo_Menu_Navegacion {
+  font-size: 150%;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  margin: 0;
+  padding: 0;
+
+  text-align: center;
+  text-wrap: normal;
+
+  margin: 3% 0;
+}
+
+.Catalogo_Opciones {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 80%;
+}
+
+.Opciones {
+  width: 100%;
+  height: 10%;
+  margin: 0;
+  padding: 0;
+}
+
+.opcion {
+  background-color: transparent;
+  border-radius: 10px;
+  margin: 5%;
+  border: 1px solid rgb(0, 0, 0);
+  margin-bottom: 2%;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+
+  height: fit-content;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.opcion p {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font-weight: 500;
+  color: rgb(67, 65, 65);
+  text-align: center;
+}
+
+.opcion button {
+  width: 30%;
+  height: 20px;
+  background-color: rgb(53, 54, 95);
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  margin: 2%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.opcion button a {
+  color: rgb(255, 255, 255);
+  font-size: 110%;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.opcion button:hover {
+  background-color: rgb(255, 253, 253);
+}
+
+.opcion button:hover a {
+  color: rgb(0, 0, 0);
+}

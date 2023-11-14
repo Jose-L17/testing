@@ -11,7 +11,7 @@ export class HoursService {
 
   constructor(private http: HttpClient ) { }
 
-  apiUrl = 'http://localhost:8080/hours';
+  apiUrl = 'https://apicv-service-jose-l17.cloud.okteto.net/hours';
 
   httpOptions = {
     headers: new HttpHeaders ({
@@ -23,15 +23,5 @@ export class HoursService {
     return this.http.get<any>(this.apiUrl, this.httpOptions);
   }
 
-  handleError(error: any) {
-    let errorMessage = '';
 
-    if(error.error instanceof ErrorEvent) {
-      errorMessage = error.error.message;
-    } else {
-      errorMessage = `Error code: ${error.status} \n Message: ${error.message}`
-    }
-    window.alert(errorMessage);
-    return throwError(errorMessage);
-  }
 }

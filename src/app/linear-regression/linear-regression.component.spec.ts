@@ -4,6 +4,7 @@ import { LinearRegressionComponent } from './linear-regression.component';
 import { TestService } from '../services/datatest1.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { of } from 'rxjs';
+import { sum, sumXY, sumX, sumYY, sumXX, B1, B0, yk } from './linear-regression.component';
 
 describe('LinearRegressionComponent', () => {
   let component: LinearRegressionComponent;
@@ -158,4 +159,51 @@ describe('LinearRegressionComponent', () => {
     );
     expect(yk).toBeCloseTo(49.4994, 4);
   })
+
+  it('should calculate sumXX correctly', () => {
+    const x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    const result = component.sumXX(x);
+
+    expect(result).toBeDefined();
+
+  });
+
+  it('should calculate sumY correctly', () => {
+    const y = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    const result = component.SumY(y);
+
+    expect(result).toBeDefined();
+
+  });
+
+  it('should calculate B1 correctly', () => {
+    const x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    const y = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    const result = B1(x, y);
+
+    expect(result).toBeDefined();
+  });
+
+  it('should calculate B0 correctly', () => {
+    const x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const y = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    const result = B0(x, y);
+
+    expect(result).toBeDefined();
+  });
+
+  it('should calculate yk correctly', () => {
+    const x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const y = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const xk = 386;
+
+    const result = yk(x, y, xk);
+
+    expect(result).toBeDefined();
+  });
+
 });
