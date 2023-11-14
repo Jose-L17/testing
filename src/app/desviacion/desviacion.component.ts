@@ -21,7 +21,7 @@ export class DesviacionComponent implements OnInit {
 
   public resultado = 0;
   public resultado2 = 0;
-  public array_elegido: any;
+  public array_elegido: any = 0;
 
   async ngOnInit(): Promise<void> {
     await this.getHours();
@@ -33,20 +33,23 @@ export class DesviacionComponent implements OnInit {
   }
 
   async getHours() {
+
+    this.array_elegido =await this.hoursService.getHours().toPromise();
+
     return new Promise<void>((resolve, reject) => {
       this.hoursService.getHours().subscribe((data: any[]) => {
         this.horas = data;
-        this.array_elegido = data;
         resolve();
       });
     });
   }
 
   async getSize() {
+    this.array_elegido =await this.sizeService.getSize().toPromise();
+
     return new Promise<void>((resolve, reject) => {
       this.sizeService.getSize().subscribe((data: any[]) => {
         this.size = data;
-        this.array_elegido = data;
         resolve();
       });
     });

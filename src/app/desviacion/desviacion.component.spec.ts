@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import {
   HttpClientTestingModule,
   HttpTestingController,
@@ -7,6 +7,7 @@ import { of } from 'rxjs';
 import { DesviacionComponent } from './desviacion.component';
 import { HoursService } from '../services/data.service';
 import { SizeService } from '../services/data2.service';
+import { By } from '@angular/platform-browser';
 
 describe('DesviacionComponent', () => {
   let component: DesviacionComponent;
@@ -241,7 +242,7 @@ describe('DesviacionComponent', () => {
   });
 
   it('should return data for getHours', async () => {
-    const hoursData = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+    const hoursData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
     spyOn(component.hoursService, 'getHours').and.returnValue(of(hoursData));
 
@@ -251,7 +252,7 @@ describe('DesviacionComponent', () => {
   });
 
   it('should return data for getSize', async () => {
-    const sizeData = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+    const sizeData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
     spyOn(component.sizeService, 'getSize').and.returnValue(of(sizeData));
 
@@ -261,7 +262,7 @@ describe('DesviacionComponent', () => {
   });
 
   it('should calculate media_hours if horas.data is valid', () => {
-    const horasData = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+    const horasData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
     component.horas = { data: horasData };
 
@@ -275,7 +276,7 @@ describe('DesviacionComponent', () => {
   });
 
   it('should calculate media_size if size.data is valid', () => {
-    const sizeData = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+    const sizeData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
     component.size = { data: sizeData };
 
@@ -293,20 +294,30 @@ describe('DesviacionComponent', () => {
     expect(result).toBe(0);
   });
 
-
   it('should return 0 when array is empty', () => {
-    let datos =  { data: [1, 2, 3, 4 , 5 ,6 ,7 ,8 ,9, 10]};
+    let datos = { data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] };
     const result = component.calcularMedia(datos);
     expect(result).toBe(5.5);
   });
 
   //Prueba para probar calcularDesviacion
   it('should return 0 when array is empty', () => {
-    let datos =  { data: [1, 2, 3, 4 , 5 ,6 ,7 ,8 ,9, 10]};
+    let datos = { data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] };
     const result = component.calcularDesviacion(datos);
     expect(result).toBe(3.03);
   });
 
+  it('Probar boton BotonMedia ', async () => {
+    let modulo = fixture.debugElement.query(By.css('.Escoger1'));
+    modulo.triggerEventHandler('click', null);
+    expect(component.array_elegido).toBe(0);
+  });
 
+  it('Probar boton BotonSize ', async () => {
+    let modulo = fixture.debugElement.query(By.css('.Escoger2'));
+    modulo.triggerEventHandler('click', null);
+    expect(component.array_elegido).toBe(0);
+  });
 
 });
+
