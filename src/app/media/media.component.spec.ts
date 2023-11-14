@@ -159,4 +159,11 @@ describe('MediaComponent', () => {
     expect(result).toBe(0);
   });
 
+
+  it('should return 0 when array is empty', () => {
+    let datos =  { data: [1, 2, 3, 4 , 5 ,6 ,7 ,8 ,9, 10]};
+    const result = component.calcularMedia(datos);
+    expect(result).toBe(5.5);
+  });
+
 });

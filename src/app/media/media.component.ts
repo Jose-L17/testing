@@ -64,8 +64,9 @@ export class MediaComponent implements OnInit {
     return +(sum / numbers.length).toFixed(2);
   }
 
-  calcularMedia(array: number[] | any): void {
+  calcularMedia(array: number[] | any) {
     const result = this.getMedia(...array.data);
     this.resultado = result;
+    return result;
   }
 }
