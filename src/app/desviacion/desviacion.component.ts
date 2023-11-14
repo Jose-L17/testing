@@ -15,10 +15,13 @@ export class DesviacionComponent implements OnInit {
 
   public horas: any[] | any;
   public size: any[] | any;
-  public media_hours: any[] | any;
-  public media_size: any[] | any;
-  public desviacion_hours: any; // Para almacenar la desviación estándar de horas
-  public desviacion_size: any; // Para almacenar la desviación estándar de size
+  public media: any[] | any;
+  public desviacion_hours: any;
+  public desviacion_size: any;
+
+  public resultado = 0;
+  public resultado2 = 0;
+  public array_elegido: any;
 
   async ngOnInit(): Promise<void> {
     await this.getHours();
@@ -33,6 +36,7 @@ export class DesviacionComponent implements OnInit {
     return new Promise<void>((resolve, reject) => {
       this.hoursService.getHours().subscribe((data: any[]) => {
         this.horas = data;
+        this.array_elegido = data;
         resolve();
       });
     });
@@ -42,6 +46,7 @@ export class DesviacionComponent implements OnInit {
     return new Promise<void>((resolve, reject) => {
       this.sizeService.getSize().subscribe((data: any[]) => {
         this.size = data;
+        this.array_elegido = data;
         resolve();
       });
     });
@@ -49,13 +54,13 @@ export class DesviacionComponent implements OnInit {
 
   async obtenerMediaHours() {
     if (this.horas && this.horas.data && Array.isArray(this.horas.data)) {
-      this.media_hours = this.getMedia(...this.horas.data);
+      this.media = this.getMedia(...this.horas.data);
     }
   }
 
   async obtenerMediaSize() {
     if (this.size && this.size.data && Array.isArray(this.size.data)) {
-      this.media_size = this.getMedia(...this.size.data);
+      this.media = this.getMedia(...this.size.data);
     }
   }
 
@@ -72,7 +77,7 @@ export class DesviacionComponent implements OnInit {
       this.desviacion_size = this.getDesviacion(this.size.data, media);
     }
   }
-  
+
   getMedia(...numbers: number[]): number {
     if (numbers.length === 0) return 0;
     const sum = numbers.reduce((a, b) => a + b, 0);
@@ -90,5 +95,18 @@ export class DesviacionComponent implements OnInit {
     const varianza = acumulador / (arreglo.length - 1);
     const desviacion = Math.sqrt(varianza);
     return +desviacion.toFixed(2);
+  }
+
+  calcularMedia(array: number[] | any) {
+    const result = this.getMedia(...array.data);
+    this.resultado = result;
+    return result;
+  }
+
+  calcularDesviacion(array: number[] | any) {
+    const media = this.getMedia(...array.data);
+    const result = this.getDesviacion(array.data, media);
+    this.resultado2 = result;
+    return result;
   }
 }
