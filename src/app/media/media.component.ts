@@ -17,6 +17,9 @@ export class MediaComponent implements OnInit {
   public size: any[] | any;
   public media: any;
 
+  public array_elegido: any;
+  public resultado = 0;
+
   async ngOnInit(): Promise<void> {
     await this.getHours();
     await this.getSize();
@@ -27,6 +30,7 @@ export class MediaComponent implements OnInit {
     return new Promise<void>((resolve, reject) => {
       this.hoursService.getHours().subscribe((data: any[]) => {
         this.horas = data;
+        this.array_elegido = data;
         resolve();
       });
     });
@@ -36,6 +40,7 @@ export class MediaComponent implements OnInit {
     return new Promise<void>((resolve, reject) => {
       this.sizeService.getSize().subscribe((data: any[]) => {
         this.size = data;
+        this.array_elegido = data;
         resolve();
       });
     });
@@ -57,5 +62,10 @@ export class MediaComponent implements OnInit {
     if (numbers.length === 0) return 0;
     const sum = numbers.reduce((a, b) => a + b, 0);
     return +(sum / numbers.length).toFixed(2);
+  }
+
+  calcularMedia(array: number[] | any): void {
+    const result = this.getMedia(...array.data);
+    this.resultado = result;
   }
 }
