@@ -135,7 +135,7 @@
   cursor: pointer;
 }
 
-.opcion button a {
+.opcion button {
   color: rgb(255, 255, 255);
   font-size: 110%;
   font-weight: 500;
@@ -146,6 +146,6 @@
   background-color: rgb(255, 253, 253);
 }
 
-.opcion button:hover a {
+.opcion button:hover {
   color: rgb(0, 0, 0);
 }
