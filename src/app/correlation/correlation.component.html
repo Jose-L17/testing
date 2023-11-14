@@ -1,1 +1,44 @@
-<p>correlation works!</p>
+<main class="Contenedor_Principal">
+  <section class="Menu_Opciones">
+    <div class="conjunto_botones">
+      <button (click)="ObtenerArreglo11()">Escoger Array 1</button>
+      <button (click)="ObtenerArreglo22()">Escoger Array 2</button>
+      <button (click)="ObtenerArreglo33()">Escoger Array 3</button>
+      <button (click)="ObtenerArreglo44()">Escoger Array 4</button>
+    </div>
+  </section>
+
+  <section class="Pantalla_Informacion">
+    <div class="opciones_Botones">
+      <label for="">Ingrese el valor de x: </label>
+      <input (input)="ActualizarValorXk($event)" [value]="xk" type="number" placeholder="Valor de x" required />
+
+      <button (click)="CalcularResultado(array_elegido.dato1, array_elegido.dato2)">
+        Calcular Regresion
+      </button>
+    </div>
+
+    <div class="opciones_Resultados">
+      <div class="opcion_Resultado">
+        <h3>Resultados:</h3>
+        <p>r1: {{ resultado }}</p>
+        <p>rr: {{resultado2}} </p>
+
+        <p>B0: {{B0v}} </p>
+        <p>B1: {{B1v}} </p>
+        <p>Yk: {{Yk}} </p>
+        <p></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="Pie_Pagina">
+    <div>
+      <h3>Array Elegido:</h3>
+      <div class="Acomodar">
+        <p>Arreglo 1: {{ array_elegido.dato1 }}</p>
+        <p>Arreglo 2: {{ array_elegido.dato2 }}</p>
+      </div>
+    </div>
+  </section>
+</main>
