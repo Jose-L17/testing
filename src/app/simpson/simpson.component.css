@@ -1,0 +1,168 @@
+.Contenedor_Principal {
+  width: 100%;
+  height: 100%;
+
+  min-width: 900px;
+  min-height: 560px;
+  background-color: rgba(219, 212, 212, 0.245);
+
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 1fr 3fr 0.3fr;
+  grid-template-areas:
+    "Menu_Opciones Menu_Opciones"
+    "Pantalla_Informacion Pantalla_Informacion"
+    "Pie_Pagina Pie_Pagina";
+}
+
+.Menu_Opciones {
+  grid-area: Menu_Opciones;
+  width: 900px;
+  height: 25px;
+  background-color: rgb(23, 9, 83);
+  border-radius: 10px;
+  margin: 0;
+  padding: 26px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.Pantalla_Informacion {
+  grid-area: Pantalla_Informacion;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-areas: "Opciones Pantalla";
+}
+
+.Pie_Pagina {
+  grid-area: Pie_Pagina;
+  width: 100%;
+  height: 90%;
+  border-radius: 10px;
+  margin: 0;
+  padding: 0px 23px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+  background-color: rgb(9, 23, 83);
+}
+
+.conjunto_botones {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.conjunto_botones button {
+  width: 200px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-size: 100%;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.conjunto_botones button:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+.opciones_Botones {
+  grid-area: Opciones;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  margin: 0 20px;
+}
+
+.opciones_Botones button {
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-size: 100%;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+
+  margin: 10px 20px;
+}
+
+.opciones_Botones input {
+  width: 200px;
+  height: 23px;
+  border-radius: 10px;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-size: 100%;
+  font-weight: bold;
+  margin: 0;
+  padding: 1%;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.opciones_Botones button:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+.pantalla_Botones {
+  grid-area: Pantalla;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.Pie_Pagina div h3 {
+  margin: 5px;
+  padding: 0;
+  color: rgb(255, 255, 255);
+  font-size: 100%;
+  font-weight: bold;
+}
+
+.Pie_Pagina div p {
+  margin: 5px;
+  padding: 0;
+  color: rgb(255, 255, 255);
+  font-size: 100%;
+  font-weight: bold;
+}
