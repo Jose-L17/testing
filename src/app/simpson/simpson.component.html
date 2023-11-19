@@ -1,0 +1,51 @@
+<main class="Contenedor_Principal">
+  <section class="Menu_Opciones">
+    <div class="conjunto_botones">
+      <h3 style="margin: 0; color: aliceblue;">Array No disponibles</h3>
+    </div>
+  </section>
+
+  <section class="Pantalla_Informacion">
+    <div class="opciones_Botones">
+      <label for="">Ingrese el valor de f: </label>
+      <input (input)="ActualizarF($event)" [value]="f" type="text" placeholder="2x / x*x  /  1/x  / other" required />
+
+      <label for="">Ingrese el valor de x0: </label>
+      <input (input)="ActualizarX0($event)" [value]="x0" type="number" placeholder="Valor de x0" required />
+
+      <label for="">Ingrese el valor de x1: </label>
+      <input (input)="ActualizarX1($event)" [value]="x1" type="number" placeholder="Valor de x1" required />
+
+      <label for="">Ingrese el valor de num_seg</label>
+      <input (input)="ActualizarNumSeg($event)" [value]="num_seg" type="number" placeholder="Valor de num_seg" required />
+
+      <label for="">Ingrese el valor de dof</label>
+      En caso de no tener dof, ingrese 0
+      <input (input)="ActualizarDof($event)" [value]="dof" type="number" placeholder="Valor de dof" required />
+
+      <button class="ObtenerResultado" (click)="Funcion_Simpson()">Calcular Resultado</button>
+    </div>
+
+    <div class="opciones_Resultados">
+
+
+      <div class="opcion_Resultado">
+        <p>Prueba para distribución t: p = 0.35006 if X = 1.1, num_seg = 10 and Dof = 9</p>
+      </div>
+
+      <div class="opcion_Resultado">
+        <p>Prueba para método Simpson: p=0.33333 if f(x) = x*x, x0=0, x1=1, num_seg=4, dof =0</p>
+      </div>
+
+      <div class="opcion_Resultado">
+        <p style="color: black; font-size: 120%;">Resultado <span style="color: red"> {{resultado}}</span>  </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="Pie_Pagina">
+
+      <h3 style="margin: 10px; color: aliceblue;">Array No disponibles</h3>
+  </section>
+</main>

@@ -1,10 +1,10 @@
 <main class="Contenedor_Principal">
   <section class="Menu_Opciones">
     <div class="conjunto_botones">
-      <button (click)="ObtenerArreglo11()">Escoger Array 1</button>
-      <button (click)="ObtenerArreglo22()">Escoger Array 2</button>
-      <button (click)="ObtenerArreglo33()">Escoger Array 3</button>
-      <button (click)="ObtenerArreglo44()">Escoger Array 4</button>
+      <button class="BotonObtenerArreglo11" (click)="ObtenerArreglo11()">Escoger Array 1</button>
+      <button class="BotonObtenerArreglo22" (click)="ObtenerArreglo22()">Escoger Array 2</button>
+      <button class="BotonObtenerArreglo33" (click)="ObtenerArreglo33()">Escoger Array 3</button>
+      <button class="BotonObtenerArreglo44" (click)="ObtenerArreglo44()">Escoger Array 4</button>
     </div>
   </section>
 
@@ -13,7 +13,7 @@
       <label for="">Ingrese el valor de x: </label>
       <input (input)="ActualizarValorXk($event)" [value]="xk" type="number" placeholder="Valor de x" required />
 
-      <button (click)="CalcularResultado(array_elegido.dato1, array_elegido.dato2)">
+      <button class="ResultadoRegresion" (click)="CalcularResultado(array_elegido.dato1, array_elegido.dato2)">
         Calcular Regresion
       </button>
     </div>

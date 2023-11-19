@@ -28,7 +28,6 @@ export function gammaFunctionEven(dof: number) {
     i++;
   } while (dof > 1);
 
-  console.log(mult * 1.77245, "gamma (gam2)"); // Muestra el valor de la función gamma en la consola.
   return (gamma = mult * 1.77245); // Retorna el valor calculado de la función gamma multiplicado por 1.77245.
 }
 

@@ -6,6 +6,7 @@ import { CorrelationComponent } from './correlation.component';
 import { TestService } from '../services/datatest1.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { of } from 'rxjs';
+import { By } from '@angular/platform-browser';
 
 describe('CorrelationComponent', () => {
   let component: CorrelationComponent;
@@ -164,11 +165,11 @@ describe('CorrelationComponent', () => {
   });
 
   it('should calculate B0, B1, Yk, and rr correctly in CalcularResultado', () => {
-    spyOn(component, 'FormulaCorrelacion').and.returnValue(0.8); 
-    spyOn(component, 'ObtenerB0').and.returnValue(2); 
-    spyOn(component, 'ObtenerB1').and.returnValue(3); 
-    spyOn(component, 'ObtenerYk').and.returnValue(4); 
-    spyOn(component, 'rr').and.returnValue(0.9); 
+    spyOn(component, 'FormulaCorrelacion').and.returnValue(0.8);
+    spyOn(component, 'ObtenerB0').and.returnValue(2);
+    spyOn(component, 'ObtenerB1').and.returnValue(3);
+    spyOn(component, 'ObtenerYk').and.returnValue(4);
+    spyOn(component, 'rr').and.returnValue(0.9);
 
     component.CalcularResultado([1, 2, 3], [4, 5, 6]);
 
@@ -185,6 +186,54 @@ describe('CorrelationComponent', () => {
     component.ActualizarValorXk(mockEvent);
 
     expect(component.xk).toBe('5');
+  });
+
+  it ("should call CalcularResultado when CalcularRegresionLineal is called", () => {
+
+    component.array_elegido.dato1 = [1, 2, 3];
+
+    component.array_elegido.dato2 = [4, 5, 6];
+
+    let calcularBoton = fixture.debugElement.query(By.css('.ResultadoRegresion'));
+
+    calcularBoton.triggerEventHandler('click', null);
+
+    expect(component.resultado).toBe(1);
+    expect(component.B0v).toBe(3);
+    expect(component.B1v).toBe(1);
+    expect(component.Yk).toBe(3);
+    expect(component.resultado2).toBe(1);
+  });
+
+  it ("should call CalcularResultado when CalcularRegresionLineal is called", () => {
+
+    component.array_elegido.dato1 = [1, 2, 3];
+
+    component.array_elegido.dato2 = [4, 5, 6];
+
+    let calcularBoton = fixture.debugElement.query(By.css('.ResultadoRegresion'));
+
+    calcularBoton.triggerEventHandler('click', null);
+
+    expect(component.resultado).toBe(1);
+    expect(component.B0v).toBe(3);
+    expect(component.B1v).toBe(1);
+    expect(component.Yk).toBe(3);
+    expect(component.resultado2).toBe(1);
+  });
+
+  it ("Probar que al presionar el boton para obtener el arreglo 11 se llene el arreglo 11", () =>
+  {
+    let botonArreglo11 = fixture.debugElement.query(By.css('.BotonObtenerArreglo11'));
+
+    botonArreglo11.triggerEventHandler('click', null);
+
+    expect(component.datos_Api_Test1).toBeDefined();
+    expect(component.datos_Api_Test1.proxy_size).toBeDefined();
+    expect(component.datos_Api_Test1.actual_added).toBeDefined();
+    expect(component.array_elegido.dato1).toBeDefined();
+    expect(component.array_elegido.dato2).toBeDefined();
+    
   });
 
 
