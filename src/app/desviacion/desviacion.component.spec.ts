@@ -300,7 +300,6 @@ describe('DesviacionComponent', () => {
     expect(result).toBe(5.5);
   });
 
-  //Prueba para probar calcularDesviacion
   it('should return 0 when array is empty', () => {
     let datos = { data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] };
     const result = component.calcularDesviacion(datos);
@@ -308,15 +307,18 @@ describe('DesviacionComponent', () => {
   });
 
   it('Probar boton BotonMedia ', async () => {
+    component.array_elegido = [ 1,2,3,4,5,6,7,8,9,10 ]
     let modulo = fixture.debugElement.query(By.css('.Escoger1'));
     modulo.triggerEventHandler('click', null);
-    expect(component.array_elegido).toBe(0);
+    expect(component.array_elegido).toEqual([ 1,2,3,4,5,6,7,8,9,10 ]);
   });
 
   it('Probar boton BotonSize ', async () => {
+    component.array_elegido = [ 1,2,3,4,5,6,7,8,9,10 ]
+
     let modulo = fixture.debugElement.query(By.css('.Escoger2'));
     modulo.triggerEventHandler('click', null);
-    expect(component.array_elegido).toBe(0);
+    expect(component.array_elegido).toEqual([ 1,2,3,4,5,6,7,8,9,10 ]);
   });
 
 });
