@@ -4,6 +4,7 @@ import { SimpsonComponent } from './simpson.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { By } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 describe('media test suite', () => {
 
@@ -13,7 +14,7 @@ describe('media test suite', () => {
   beforeEach(async()  => {
 
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule, HttpClientTestingModule],
+      imports: [HttpClientModule, HttpClientTestingModule, FormsModule],
       declarations: [SimpsonComponent],
     }).compileComponents();
 
@@ -113,6 +114,78 @@ describe('media test suite', () => {
         expect(component.dof).toBeDefined();
         expect(component.error).toBeDefined();
         expect(component.resultado).toBeDefined();
+    });
+
+    it("Should set x1 model through ngModel", async () => {
+      await fixture.whenStable();
+      fixture.detectChanges();
+      const inputElement = fixture.debugElement.query(
+        By.css('input[name="Input-f"]')
+      ).nativeElement;
+      inputElement.value = "x*x";
+      inputElement.dispatchEvent(new Event("input"));
+      fixture.detectChanges();
+      expect(component.f).toEqual("x*x");
+    });
+
+    it("Should set x0 model through ngModel", async () => {
+      await fixture.whenStable();
+      fixture.detectChanges();
+      const inputElement = fixture.debugElement.query(
+        By.css('input[name="Input-x0"]')
+      ).nativeElement;
+      inputElement.value = "2.71";
+      inputElement.dispatchEvent(new Event("input"));
+      fixture.detectChanges();
+      expect(component.x0).toEqual(2.71);
+    });
+
+    it("Should set x1 model through ngModel", async () => {
+      await fixture.whenStable();
+      fixture.detectChanges();
+      const inputElement = fixture.debugElement.query(
+        By.css('input[name="Input-x1"]')
+      ).nativeElement;
+      inputElement.value = "2.71";
+      inputElement.dispatchEvent(new Event("input"));
+      fixture.detectChanges();
+      expect(component.x1).toEqual(2.71);
+    });
+
+    it("Should set num_seg model through ngModel", async () => {
+      await fixture.whenStable();
+      fixture.detectChanges();
+      const inputElement = fixture.debugElement.query(
+        By.css('input[name="Input-num_seg"]')
+      ).nativeElement;
+      inputElement.value = "2.71";
+      inputElement.dispatchEvent(new Event("input"));
+      fixture.detectChanges();
+      expect(component.num_seg).toEqual(2.71);
+    });
+
+    it("Should set dof model through ngModel", async () => {
+      await fixture.whenStable();
+      fixture.detectChanges();
+      const inputElement = fixture.debugElement.query(
+        By.css('input[name="Input-dof"]')
+      ).nativeElement;
+      inputElement.value = "2.71";
+      inputElement.dispatchEvent(new Event("input"));
+      fixture.detectChanges();
+      expect(component.dof).toEqual(2.71);
+    });
+
+    it("Should set error model through ngModel", async () => {
+      await fixture.whenStable();
+      fixture.detectChanges();
+      const inputElement = fixture.debugElement.query(
+        By.css('input[name="Input-error"]')
+      ).nativeElement;
+      inputElement.value = "2.71";
+      inputElement.dispatchEvent(new Event("input"));
+      fixture.detectChanges();
+      expect(component.error).toEqual(2.71);
     });
 
 });
