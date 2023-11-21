@@ -11,7 +11,7 @@
   <section class="Pantalla_Informacion">
     <div class="opciones_Botones">
       <label for="">Ingrese el valor de x: </label>
-      <input (input)="ActualizarValorXk($event)" [value]="xk" type="number" placeholder="Valor de x" required />
+      <input (input)="ActualizarValorXk($event)" [value]="xk" type="number" placeholder="Valor de x" required name="Input-xk" />
 
       <button class="ResultadoRegresion" (click)="CalcularResultado(array_elegido.dato1, array_elegido.dato2)">
         Calcular Regresion
