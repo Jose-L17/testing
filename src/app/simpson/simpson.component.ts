@@ -19,6 +19,7 @@ export class SimpsonComponent {
   public error = 0.0;
 
   ActualizarF(event: Event): void {
+
     this.f = (event.target as HTMLInputElement).value;
   }
 
@@ -57,7 +58,7 @@ export function simpson(
   dof: number,
   error: number,
 ) {
-  let E = 0.00001; // Tolerancia de error
+  let E =error; // Tolerancia de error
   let x = 0; // Variable para almacenar la posición actual
   let xC; // Valor de la función en x
   let y; // Valor del término y en la regla de Simpson
