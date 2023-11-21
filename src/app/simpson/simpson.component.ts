@@ -16,8 +16,10 @@ export class SimpsonComponent {
   public num_seg = 0;
   public dof = 0;
   public resultado = 0;
+  public error = 0.0;
 
   ActualizarF(event: Event): void {
+
     this.f = (event.target as HTMLInputElement).value;
   }
 
@@ -37,8 +39,12 @@ export class SimpsonComponent {
     this.dof = parseFloat((event.target as HTMLInputElement).value);
   }
 
+  ActualizarError(event: Event): void {
+    this.error = parseFloat((event.target as HTMLInputElement).value);
+  }
+
   Funcion_Simpson() {
-    this.resultado = simpson(this.f, this.x0, this.x1, this.num_seg, this.dof);
+    this.resultado = simpson(this.f, this.x0, this.x1, this.num_seg, this.dof, this.error);
     return this.resultado;
   }
 
@@ -49,9 +55,10 @@ export function simpson(
   x0: number,
   x1: number,
   num_seg: number,
-  dof: number
+  dof: number,
+  error: number,
 ) {
-  let E = 0.00001; // Tolerancia de error
+  let E =error; // Tolerancia de error
   let x = 0; // Variable para almacenar la posición actual
   let xC; // Valor de la función en x
   let y; // Valor del término y en la regla de Simpson

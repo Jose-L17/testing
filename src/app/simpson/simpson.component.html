@@ -23,6 +23,9 @@
       En caso de no tener dof, ingrese 0
       <input (input)="ActualizarDof($event)" [value]="dof" type="number" placeholder="Valor de dof" required />
 
+      <label for="">Ingrese el valor de torelancia al error</label>
+      <input (input)="ActualizarError($event)" [value]="error" type="number" placeholder="Valor de torelancia al error" required />
+
       <button class="ObtenerResultado" (click)="Funcion_Simpson()">Calcular Resultado</button>
     </div>
 
@@ -30,11 +33,11 @@
 
 
       <div class="opcion_Resultado">
-        <p>Prueba para distribución t: p = 0.35006 if X = 1.1, num_seg = 10 and Dof = 9</p>
+        <p>Prueba para distribución t: p = 0.35006 if X = 1.1, num_seg = 10 and Dof = 9, error = 0.00001</p>
       </div>
 
       <div class="opcion_Resultado">
-        <p>Prueba para método Simpson: p=0.33333 if f(x) = x*x, x0=0, x1=1, num_seg=4, dof =0</p>
+        <p>Prueba para método Simpson: p=0.33333 if f(x) = x*x, x0=0, x1=1, num_seg=4, dof =0 and error = 0.00001</p>
       </div>
 
       <div class="opcion_Resultado">
