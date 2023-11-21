@@ -8,7 +8,12 @@
   <section class="Pantalla_Informacion">
     <div class="opciones_Botones">
       <label for="">Ingrese el valor de f: </label>
-      <input (input)="ActualizarF($event)" [value]="f" type="text" placeholder="2x / x*x  /  1/x  / other" required name="Input-f" />
+      <select [(ngModel)]="f" >
+        <option value="2x">2x</option>
+        <option value="x*x">x*x</option>
+        <option value="1/x">1/x</option>
+        <option value="t">t</option>
+      </select>
 
       <label for="">Ingrese el valor de x0: </label>
       <input (input)="ActualizarX0($event)" [value]="x0" type="number" placeholder="Valor de x0" required name="Input-x0" />
@@ -21,7 +26,7 @@
 
       <label for="">Ingrese el valor de dof</label>
       En caso de no tener dof, ingrese 0
-      <input (input)="ActualizarDof($event)" [value]="dof" type="number" placeholder="Valor de dof" required name="Input-dof" />
+      <input (input)="ActualizarDof($event)" [value]="dof" type="number" placeholder="Valor de dof" required name="Input-dof"  />
 
       <label for="">Ingrese el valor de torelancia al error</label>
       <input (input)="ActualizarError($event)" [value]="error" type="number" placeholder="Valor de torelancia al error" required name="Input-error" />
