@@ -233,8 +233,20 @@ describe('CorrelationComponent', () => {
     expect(component.datos_Api_Test1.actual_added).toBeDefined();
     expect(component.array_elegido.dato1).toBeDefined();
     expect(component.array_elegido.dato2).toBeDefined();
-    
+
   });
 
+  //Probar input de xk
+  it("Should set xk model through ngModel", async () => {
+    await fixture.whenStable();
+    fixture.detectChanges();
+    const inputElement = fixture.debugElement.query(
+      By.css('input[name="Input-xk"]')
+    ).nativeElement;
+    inputElement.value = "2.71";
+    inputElement.dispatchEvent(new Event("input"));
+    fixture.detectChanges();
+    expect(component.xk).toEqual('2.71');
+  });
 
 });

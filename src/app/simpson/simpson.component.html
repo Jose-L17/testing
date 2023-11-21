@@ -8,23 +8,23 @@
   <section class="Pantalla_Informacion">
     <div class="opciones_Botones">
       <label for="">Ingrese el valor de f: </label>
-      <input (input)="ActualizarF($event)" [value]="f" type="text" placeholder="2x / x*x  /  1/x  / other" required />
+      <input (input)="ActualizarF($event)" [value]="f" type="text" placeholder="2x / x*x  /  1/x  / other" required name="Input-f" />
 
       <label for="">Ingrese el valor de x0: </label>
-      <input (input)="ActualizarX0($event)" [value]="x0" type="number" placeholder="Valor de x0" required />
+      <input (input)="ActualizarX0($event)" [value]="x0" type="number" placeholder="Valor de x0" required name="Input-x0" />
 
       <label for="">Ingrese el valor de x1: </label>
-      <input (input)="ActualizarX1($event)" [value]="x1" type="number" placeholder="Valor de x1" required />
+      <input (input)="ActualizarX1($event)" [value]="x1" type="number" placeholder="Valor de x1" required name="Input-x1" />
 
       <label for="">Ingrese el valor de num_seg</label>
-      <input (input)="ActualizarNumSeg($event)" [value]="num_seg" type="number" placeholder="Valor de num_seg" required />
+      <input (input)="ActualizarNumSeg($event)" [value]="num_seg" type="number" placeholder="Valor de num_seg" required name="Input-num_seg" />
 
       <label for="">Ingrese el valor de dof</label>
       En caso de no tener dof, ingrese 0
-      <input (input)="ActualizarDof($event)" [value]="dof" type="number" placeholder="Valor de dof" required />
+      <input (input)="ActualizarDof($event)" [value]="dof" type="number" placeholder="Valor de dof" required name="Input-dof" />
 
       <label for="">Ingrese el valor de torelancia al error</label>
-      <input (input)="ActualizarError($event)" [value]="error" type="number" placeholder="Valor de torelancia al error" required />
+      <input (input)="ActualizarError($event)" [value]="error" type="number" placeholder="Valor de torelancia al error" required name="Input-error" />
 
       <button class="ObtenerResultado" (click)="Funcion_Simpson()">Calcular Resultado</button>
     </div>
