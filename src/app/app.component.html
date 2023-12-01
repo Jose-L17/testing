@@ -1,37 +1,43 @@
-<body class="Contenedor_Principal">
+<div *ngIf="loggedIn">
+  <body class="Contenedor_Principal">
+    <main class="Contenedor_Secundario">
+      <section class="Menu_Opciones">
+        <header class="Menu">
+          <h1 class="Titulo_Menu_Navegacion">Pruebas de Software</h1>
+          <h2 class="Titulo_Menu_Navegacion">Menú Principal</h2>
+        </header>
 
-  <main class="Contenedor_Secundario">
+        <section class="Catalogo_Opciones">
+          <div class="Opciones">
+            <div id="Opcion1" class="opcion">
+              <p>Front End para obtener Media y Desviación Estándar</p>
+              <button class="A1" routerLink="/Media">Mostrar A1</button>
+            </div>
 
-    <section class="Menu_Opciones">
-      <header class="Menu">
-        <h1 class="Titulo_Menu_Navegacion" >Pruebas de Software</h1>
-        <h2 class="Titulo_Menu_Navegacion" >Menú Principal</h2>
-      </header>
+            <div id="Opcion2" class="opcion">
+              <p>Front End para obtener Regresión Lineal</p>
+              <button class="A2" routerLink="/Regrsion">Mostrar A2</button>
+            </div>
 
-      <section class="Catalogo_Opciones">
-        <div class="Opciones">
-          <div class="opcion">
-            <p>Front End para obtener Media y Desviación Estándar</p>
-          <button class="A1" routerLink="/Media">Mostrar A1</button>
+            <div id="Opcion3" class="opcion">
+              <p>Front End para obtener el método Simpson</p>
+              <button class="A3" routerLink="/Simpson">Mostrar A3</button>
+            </div>
           </div>
-
-          <div class="opcion">
-            <p>Front End para obtener Regresión Lineal</p>
-          <button class="A2" routerLink="/Regrsion">Mostrar A2</button>
-          </div>
-
-          <div class="opcion">
-            <p>Front End para obtener el método Simpson</p>
-          <button class="A3" routerLink="/Simpson">Mostrar A3</button>
-          </div>
-        </div>
+        </section>
       </section>
-    </section>
 
-    <section class="Pantalla_Informacion">
-      <router-outlet> </router-outlet>
-    </section>
-  </main>
+      <section class="Pantalla_Informacion">
+        <router-outlet> </router-outlet>
+      </section>
+    </main>
+  </body>
 
-</body>
+</div>
+
+<div *ngIf="!loggedIn">
+  <app-login > </app-login>
+</div>
+
+
 

@@ -145,6 +145,4 @@ export class CorrelationComponent implements OnInit {
     this.array_elegido.dato2 = this.array_elegido.actual_develop;
     return this.array_elegido;
   }
-
-
 }
