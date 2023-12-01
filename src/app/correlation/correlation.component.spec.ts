@@ -68,6 +68,8 @@ describe('CorrelationComponent', () => {
 
     spyOn(component, 'ObtenerArreglo11').and.returnValue(Promise.resolve());
     spyOn(component, 'ObtenerArreglo22').and.returnValue(Promise.resolve());
+    spyOn(component, 'ObtenerArreglo33').and.returnValue(Promise.resolve());
+    spyOn(component, 'ObtenerArreglo44').and.returnValue(Promise.resolve());
   });
 
   it('should create', () => {
@@ -233,7 +235,45 @@ describe('CorrelationComponent', () => {
     expect(component.datos_Api_Test1.actual_added).toBeDefined();
     expect(component.array_elegido.dato1).toBeDefined();
     expect(component.array_elegido.dato2).toBeDefined();
+  });
 
+  it ("Probar que al presionar el boton para obtener el arreglo 11 se llene el arreglo 11", () =>
+  {
+    let botonArreglo11 = fixture.debugElement.query(By.css('.BotonObtenerArreglo22'));
+
+    botonArreglo11.triggerEventHandler('click', null);
+
+    expect(component.datos_Api_Test2).toBeDefined();
+    expect(component.datos_Api_Test2.proxy_size).toBeDefined();
+    expect(component.datos_Api_Test2.actual_develop).toBeDefined();
+    expect(component.array_elegido.dato1).toBeDefined();
+    expect(component.array_elegido.dato2).toBeDefined();
+  });
+
+  it ("Probar que al presionar el boton para obtener el arreglo 11 se llene el arreglo 11", () =>
+  {
+    let botonArreglo11 = fixture.debugElement.query(By.css('.BotonObtenerArreglo33'));
+
+    botonArreglo11.triggerEventHandler('click', null);
+
+    expect(component.datos_Api_Test3).toBeDefined();
+    expect(component.datos_Api_Test3.plan_added).toBeDefined();
+    expect(component.datos_Api_Test3.actual_added).toBeDefined();
+    expect(component.array_elegido.dato1).toBeDefined();
+    expect(component.array_elegido.dato2).toBeDefined();
+  });
+
+  it ("Probar que al presionar el boton para obtener el arreglo 11 se llene el arreglo 11", () =>
+  {
+    let botonArreglo11 = fixture.debugElement.query(By.css('.BotonObtenerArreglo44'));
+
+    botonArreglo11.triggerEventHandler('click', null);
+
+    expect(component.datos_Api_Test4).toBeDefined();
+    expect(component.datos_Api_Test4.proxy_added).toBeDefined();
+    expect(component.datos_Api_Test4.actual_develop).toBeDefined();
+    expect(component.array_elegido.dato1).toBeDefined();
+    expect(component.array_elegido.dato2).toBeDefined();
   });
 
   //Probar input de xk

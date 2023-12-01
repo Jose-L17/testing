@@ -9,26 +9,26 @@
 
   <section class="Pantalla_Informacion">
     <div class="opciones_Botones">
-      <button (click)="calcularMedia(array_elegido)">Calcular Media</button>
-      <button (click)="calcularDesviacion(array_elegido)">Calcular Desviación</button>
+      <button id="boton1" (click)="calcularMedia(array_elegido)">Calcular Media</button>
+      <button id="boton2" (click)="calcularDesviacion(array_elegido)">Calcular Desviación</button>
     </div>
 
     <div class="opciones_Resultados">
       <div class="opcion_Resultado">
-        <h3>Media</h3>
-        <p>Resultado {{resultado}} </p>
+        <h3 id="Media">Media</h3>
+        <p id="Media_Resultado">Resultado {{resultado}} </p>
       </div>
 
       <div class="opcion_Resultado">
-        <h3>Desviación Estándar</h3>
-        <p>Resultado {{resultado2}} </p>
+        <h3 id="Desviacion">Desviación Estándar</h3>
+        <p id="Resultado_Desviacion">Resultado {{resultado2}} </p>
       </div>
     </div>
   </section>
 
   <section class="Pie_Pagina">
     <div>
-      <h3> Array Elegido: </h3>
+      <h3>Array Elegido:</h3>
       <p> {{array_elegido.data}} </p>
     </div>
   </section>

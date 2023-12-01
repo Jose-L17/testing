@@ -1,0 +1,85 @@
+<div class="overlay" style="padding-top: 1rem">
+
+  <form>
+    <section class="parte1">
+      <p id="TituloRegistro">¿Aún no estás registrado?</p>
+
+      <button>
+        <p id="SubtituloRegistro">Registrarse</p>
+      </button>
+    </section>
+
+    <section class="parte2">
+
+      <div class="imagen">
+        <img src="https://www.rtv.org.mx/masnoticias/wp-content/uploads/sites/13/2013/05/Logo-UV-724x1024.png" alt="">
+      </div>
+
+      <div class="contenido">
+
+        <section class="Titulo">
+          <h1 id="TituloInicioSesion">Iniciar Sesión</h1>
+        </section>
+
+        <div class="formulario">
+
+
+          <div class="Input">
+
+            <i class="fa fa-key"> </i>
+
+            <input class="form-input" id="txt-input" type="email" placeholder="@UsuarioDemo: admin@hotmail.com" [value]="username"
+              (input)="updateUsername($event)" required />
+          </div>
+
+          <br />
+
+          <div class="Input">
+
+            <i class="fa fa-key"> </i>
+
+            <input class="form-input" type="password" id="pwd" name="password" placeholder="@ContraseñaDemo: admin"
+            [value]="password" (input)="updatePassword($event)" required />
+
+          </div>
+
+
+          <br />
+
+          <button
+          id="loginFormSubmitButton"
+          class="log-in" (click)="IniciarSesion()" routerLink="Sistema/Inicio">Iniciar Sesión</button>
+
+        </div>
+      </div>
+    </section>
+  </form>
+</div>
+
+<script>
+  function show() {
+    var p = document.getElementById("pwd");
+    p.setAttribute("type", "text");
+  }
+
+  function hide() {
+    var p = document.getElementById("pwd");
+    p.setAttribute("type", "password");
+  }
+
+  var pwShown = 0;
+
+  document.getElementById("eye").addEventListener(
+    "click",
+    function () {
+      if (pwShown == 0) {
+        pwShown = 1;
+        show();
+      } else {
+        pwShown = 0;
+        hide();
+      }
+    },
+    false
+  );
+</script>

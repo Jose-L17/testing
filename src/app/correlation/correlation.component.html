@@ -13,20 +13,18 @@
       <label for="">Ingrese el valor de x: </label>
       <input (input)="ActualizarValorXk($event)" [value]="xk" type="number" placeholder="Valor de x" required name="Input-xk" />
 
-      <button class="ResultadoRegresion" (click)="CalcularResultado(array_elegido.dato1, array_elegido.dato2)">
-        Calcular Regresion
-      </button>
+      <button class="ResultadoRegresion" (click)="CalcularResultado(array_elegido.dato1, array_elegido.dato2)">Calcular Regresion</button>
     </div>
 
     <div class="opciones_Resultados">
       <div class="opcion_Resultado">
         <h3>Resultados:</h3>
-        <p>r1: {{ resultado }}</p>
-        <p>rr: {{resultado2}} </p>
+        <p id="r1">r1: {{ resultado }}</p>
+        <p id="rr">rr: {{resultado2}} </p>
 
-        <p>B0: {{B0v}} </p>
-        <p>B1: {{B1v}} </p>
-        <p>Yk: {{Yk}} </p>
+        <p id="B0">B0: {{B0v}} </p>
+        <p id="B1">B1: {{B1v}} </p>
+        <p id="Yk">Yk: {{Yk}} </p>
         <p></p>
       </div>
     </div>
