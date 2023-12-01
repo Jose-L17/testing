@@ -216,25 +216,19 @@ describe('Validar el inicio del sistema', () => {
 
   });
 
-  it('Debe ingresar valores en los inputs, seleccionar una opción y validar el resultado', () => {
+  it('Probar botones del A5', () => {
     cy.get('#Opcion3 button').click();
 
-    // Ingresa valores en los inputs
     cy.get('.opciones_Botones input[name="Input-x0"]').type('10');
     cy.get('.opciones_Botones input[name="Input-x1"]').type('20');
     cy.get('.opciones_Botones input[name="Input-num_seg"]').type('5');
     cy.get('.opciones_Botones input[name="Input-dof"]').type('8');
     cy.get('.opciones_Botones input[name="Input-error"]').type('0.00001');
 
-    // Selecciona una opción en el select
     cy.get('.opciones_Botones select').select('x*x', { force: true });
 
-
-
-    // Haz clic en el botón para calcular el resultado
     cy.get('.ObtenerResultado').click();
 
-    // Valida el resultado esperado
     cy.get('.opciones_Resultados .opcion_Resultado p').should('include.text', 'Resultado');
   });
 });
